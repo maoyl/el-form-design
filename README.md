@@ -1,6 +1,6 @@
-# vue-form-deisgn
+# el-form-deisgn
 
-> A Vue.js project
+> 一个基于element ui的可拖拽生成表单的表单设计器
 
 ## Build Setup
 
