@@ -20,12 +20,13 @@
       size='mini'
       >
       <el-table
-          :key="tablekey"
-          :border='data.border'
-          :data="dynamicValidateForm.domains"
-          class="tb-edit"
-          style="width: 100%"
-          highlight-current-row
+        empty-text='拖动左侧的组件到表格中'
+        :key="tablekey"
+        :border='data.border'
+        :data="dynamicValidateForm.domains"
+        class="tb-edit"
+        style="width: 100%"
+        highlight-current-row
         >
           <el-table-column align="center" type="index" width="50"></el-table-column>
           <el-table-column align="center" v-for="(item,index) in data.column"  :label="item.name + (item.rules.length > 0 ? '(必填)':'(可选)') " :key="'column'+index">

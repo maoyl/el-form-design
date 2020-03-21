@@ -3,7 +3,6 @@
   <el-row :gutter="10">
     <el-col :span='6'>
       <Assembly 
-        :height='height'
         :drag2='drag2'
         @addcom='addcom'
         @setcom='setcom' 
@@ -19,7 +18,6 @@
         :drag1='drag1'
         :drag2='drag2'
         :com='com'
-        :height='height'
         @setdrag='setdrag'
         @reset='reset'
         @setdelcom='setdelcom'
@@ -33,7 +31,6 @@
     </el-col>
     <el-col :span="6">
       <AttrFrom
-        :height='height'
         :form='formcom'
         :formsetting='formsetting'
         :drag2='drag2'
@@ -91,8 +88,6 @@ export default {
         rules: []
       },
       dialogVisible: false,
-      // 屏幕高度
-      height: 600
     };
   },
   created () {
@@ -103,7 +98,6 @@ export default {
     }
   },
   mounted () {
-    this.height = window.innerHeight - 20
   },
   methods: {
     // 左边的全部重置 左边的结束拖动时调用

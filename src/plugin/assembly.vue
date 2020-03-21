@@ -46,12 +46,6 @@ export default {
       default: () => {
         return '1'
       }
-    },
-    height: {
-      type: Number,
-      default: () => {
-        return 600
-      }
     }
   },
   components: {
@@ -141,7 +135,7 @@ export default {
 <style scoped>
 .assemblycont{
   position: relative;
-  min-height: 600px;
+  min-height: 700px;
 }
 .assemblycontzzc{
   position: absolute;
@@ -163,6 +157,7 @@ export default {
   transition: 0.3s;
   cursor: pointer;
   cursor: move;
+  font-size: 14px
 }
 .assemblycont_item:hover{
   

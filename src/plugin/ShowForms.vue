@@ -69,7 +69,6 @@ export default {
     this.initform()
   },
   methods: {
-    // 
     initform() { 
       let obj = {}
       this.data.forms.map(item => {
@@ -99,13 +98,11 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           if (pd) {
-            console.log('校验成功')
-            alert(JSON.stringify(this.form))
-            console.log(JSON.stringify(this.form))
-            console.log(this.form)
+            this.$emit('save', this.form)
           }
         } else {
           console.log('error submit!!');
+          this.$emit('save', false)
           return false;
         }
       });

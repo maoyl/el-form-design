@@ -304,12 +304,6 @@ import MInput from './assembly/input'
 import MTextarea from './assembly/textarea'
 export default {
   props: {
-    height: {
-      type: Number,
-      default: () => {
-        return 600
-      }
-    },
     // 中间是否拖动
     drag2: {
       type: String,
@@ -388,7 +382,7 @@ export default {
 <style scoped>
 .attrcont{
   position: relative;
-  min-height: 600px;
+  min-height: 700px;
 }
 .attrcontzzc{
   position: absolute;
