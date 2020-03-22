@@ -1,6 +1,7 @@
 <template>
-  <div class="cont">
-    <showforms :data="data" @save='save'/>
+  <div>
+    <formdesign/>
+    <!-- <showforms :data="data" @save='save'/> -->
   </div>
 </template>
 

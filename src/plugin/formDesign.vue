@@ -157,7 +157,8 @@ export default {
     },
     // 交换位置
     jiaohuan(start, end) {
-      let arr = JSON.parse(JSON.stringify(this.data))
+      let arr =  this.data
+      // JSON.parse(JSON.stringify(this.data))
       let aa = arr[start]
       arr[start] = arr[end]
       arr[end] = aa
