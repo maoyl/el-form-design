@@ -1,6 +1,8 @@
 # el-form-deisgn
 
 > 一个基于element ui的可拖拽生成表单的表单设计器
+(http://photovideo.photo.qq.com/1075_0b53lqi3mqaczyapp6tv3npdcxaew3cqe6ca.f20.mp4?dis_k=7cf27a3f0bd98f97f8c42acbefe18221&dis_t=1584873920&vuin=1075039897)
+
 ***
 [先看Demo](http://www.maoyl.top/Demo/elformdesigndemo/index.html#/)   [Demo源码](https://github.com/maoyl/el-form-design-demo)
 ***
