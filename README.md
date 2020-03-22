@@ -2,6 +2,7 @@
 
 > 一个基于element ui的可拖拽生成表单的表单设计器
 
+
 ## 使用方法
 
 ``` bash
@@ -83,6 +84,7 @@ export default {
 </style>
 ```
 
-
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## todo
+> 1. 增加分割线，文字
+> 2. 增加正则校验
+> 3. 增加接口配置 单选多选下拉框 内容
