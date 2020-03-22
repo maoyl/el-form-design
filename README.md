@@ -2,7 +2,7 @@
 
 > 一个基于element ui的可拖拽生成表单的表单设计器
 ***
-[先看Demo](http://www.maoyl.top/Demo/elformdesigndemo/index.html#/)
+[先看Demo](http://www.maoyl.top/Demo/elformdesigndemo/index.html#/)   [Demo源码](https://github.com/maoyl/el-form-design-demo)
 ***
 有任何意见建议或者问题请在我 [博客](http://www.maoyl.top/#/Home)  下留言 或者提 issues 我将尽最大努力解决 
 
