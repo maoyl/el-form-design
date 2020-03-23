@@ -39,7 +39,7 @@
                 <div class="hxdiv" v-if="hxindex==index && drag3 !== '2'"></div>
 
                 <el-form-item 
-                  v-if='item.type!=="TableForm"'
+                  v-if='["TableForm","Divider","p"].indexOf(item.type) == -1 '
                   :label="item.name"
                   :prop='item.key'
                   :rules='item.rules'
@@ -47,9 +47,11 @@
                 >
                   <FormItem :item='item' :form='from'/>
                 </el-form-item>
+                <el-divider v-if="item.type === 'Divider'" :content-position='item.contentposition'>{{item.text}}</el-divider>
+                <p v-if="item.type === 'p'"  :style="{'text-align': item.contentposition,'font-size':item.fontsize+'px',color:item.textcolor}">{{item.text}}</p>
                 <el-form-item v-if='item.type==="TableForm"' :label="item.name">
                   <div>
-                    <tableForm 
+                    <tableForm
                       :com='com'
                       :data='item' 
                       :drag1='drag1'

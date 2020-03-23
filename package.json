@@ -1,7 +1,7 @@
 {
   "name": "el-form-design",
   "description": "一个基于element ui的可拖拽生成表单的表单设计器",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "毛永林 <1075039897@qq.com>",
   "license": "MIT",
   "private": false,

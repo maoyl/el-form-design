@@ -158,6 +158,27 @@
             <el-input v-model="form.rangeseparator"></el-input>
           </el-form-item>
 
+          <!-- 分割线 和 文字 -->
+          <el-form-item v-if='form.showFrom.indexOf("text") !== -1' label="文字">
+            <el-input v-model="form.text"></el-input>
+          </el-form-item>
+          <el-form-item v-if='form.showFrom.indexOf("contentposition") !== -1 ' label="文字位置">
+            <el-select style="width:100%" v-model="form.contentposition" placeholder="请选择">
+              <el-option label="左" value="left"></el-option>
+              <el-option label="中" value="center"></el-option>
+              <el-option label="右" value="right"></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item v-if='form.showFrom.indexOf("fontsize") !== -1' label="文字大小">
+            <el-input-number :min="12" :max="100" :step="1"  v-model="form.fontsize"></el-input-number>
+          </el-form-item>
+          <el-form-item v-if='form.showFrom.indexOf("textcolor") !== -1' label="文字颜色">
+            <el-color-picker v-model="form.textcolor" show-alpha></el-color-picker>
+          </el-form-item>
+
+          
+          
+
           <!-- 日期选择 -->
           <el-form-item v-if='form.showFrom.indexOf("datetype") !== -1 ' label="选择单位">
             <el-select style="width:100%" v-model="form.datetype" placeholder="请选择">

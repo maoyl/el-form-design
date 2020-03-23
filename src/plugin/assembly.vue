@@ -39,6 +39,8 @@ import MTimepicker from './assembly/timepicker'
 import MDatePicker from './assembly/datePicker'
 import MRadio from './assembly/radio'
 import MCheckbox from './assembly/checkbox'
+import MDivider from './assembly/divider'
+import MP from './assembly/p'
 export default {
   props: {
     drag2: {
@@ -54,6 +56,8 @@ export default {
     return {
       lj: false,
       data: [
+        {type: 'divider', name: '分割线'},
+        {type: 'p', name: '文字'},
         {type: 'input', name: '文本框'},
         {type: 'Textarea', name: '文本域'},
         {type: 'InputNumber', name: '计数器'},
@@ -107,6 +111,10 @@ export default {
         obj = new MCheckbox()
       } else if (data.type === 'TableForm') {
         obj = new Mtable()
+      } else if (data.type === 'divider') {
+        obj = new MDivider()
+      } else if (data.type === 'p') {
+        obj = new MP()
       }
       return obj
     },

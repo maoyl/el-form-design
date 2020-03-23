@@ -5,13 +5,15 @@
       <el-row :gutter="10">
         <el-col v-for="(item,index) in data.forms" :key="index" :span="item.col">
           <el-form-item 
-            v-if='item.type!=="TableForm"'
+            v-if='["TableForm","Divider","p"].indexOf(item.type) == -1 '
             :label="item.name"
             :prop='item.key'
             :rules='item.rules'
           >
             <Formitem :item="item" :form='form'/>
           </el-form-item>
+          <el-divider v-if="item.type === 'Divider'" :content-position='item.contentposition'>{{item.text}}</el-divider>
+          <p v-if="item.type === 'p'"  :style="{'text-align': item.contentposition,'font-size':item.fontsize+'px',color:item.textcolor}">{{item.text}}</p>
           <el-form-item 
             v-if='item.type==="TableForm"'
             :label="item.name"
