@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- <formdesign @save="saveform" /> -->
-    <showforms :data="data" @save='save' :defaultData='defaultData'/>
+    <formdesign @save="saveform" />
+    <!-- <showforms :data="data" @save='save' :defaultData='defaultData'/> -->
   </div>
 </template>
 

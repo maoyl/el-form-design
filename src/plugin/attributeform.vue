@@ -4,8 +4,13 @@
     <el-tabs :class="formclass" v-model="activeName" type="card">
       <el-tab-pane label="字段设置" name="1">
         <el-form :model="form" label-width="80px" size='small'>
-          <el-form-item v-if='form.showFrom.indexOf("key") !== -1' label="字段名称">
+          <el-form-item v-if='form.showFrom.indexOf("key") !== -1 && fieldsdata.length == 0' label="字段名称">
             <el-input v-model="form.key"></el-input>
+          </el-form-item>
+          <el-form-item v-if='form.showFrom.indexOf("key") !== -1 && fieldsdata.length > 0' label="字段名称">
+            <el-select  style="width:100%" v-model="form.key" allow-create filterable>
+              <el-option  v-for='(item,index) in fieldsdata' :key="index" :label="item.label" :value="item.value"></el-option>
+            </el-select>
           </el-form-item>
           <el-form-item v-if='form.showFrom.indexOf("name") !== -1' label="中文名">
             <el-input v-model="form.name"></el-input>
@@ -346,6 +351,13 @@ export default {
     },
     formsetting: {
       type: Object
+    },
+    // 传递过来的可选字段
+    fields: {
+       type: Array,
+       default: () => {
+         return []
+       }
     }
   },
   components: {
@@ -361,6 +373,14 @@ export default {
   created () {
   },
   computed:{
+    fieldsdata () {
+      let ret = []
+      // 是数组      
+      if (Array.isArray(this.fields)) {
+        ret = this.fields
+      }
+      return ret
+    },
     zzcindex () {
       return this.drag2 === '1' ? -10 : 10
     }

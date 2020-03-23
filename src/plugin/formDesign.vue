@@ -31,6 +31,7 @@
     </el-col>
     <el-col :span="6">
       <AttrFrom
+        :fields='fields'
         :form='formcom'
         :formsetting='formsetting'
         :drag2='drag2'
@@ -62,6 +63,15 @@ export default {
   props: {
     formdata: {
       type: Object
+    },
+    fields: {
+      type: Array,
+      default: () => {
+        return [
+          {label: '姓名', value: 'name'},
+          {label: '年龄', value: 'age'},
+        ]
+      }
     }
   },
   data() {
