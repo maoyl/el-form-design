@@ -1,4 +1,4 @@
-# el-form-deisgn
+# el-form-design
 
 > 一个基于element ui的可拖拽生成表单的表单设计器
 [看效果](http://m.qpic.cn/psc?/V10C0jZ80UJ9iM/lX1BhdNAWy*lo8EgHnGEzihSwKnHB3YqbAJpP53ydihTS3i6VZ8WpbUr9HRpz7G14y3uAfFP3jvtFDBLMrYF5pCbMM7aIh.F5T*cS4ryQms!/b&bo=VwJSAQAAAAACl7U!&rf=viewer_4)

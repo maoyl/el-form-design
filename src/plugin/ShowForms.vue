@@ -59,6 +59,12 @@ export default {
           forms: []
         }
       }
+    },
+    defaultData: {
+      type: Object,
+      default: () => {
+        return {}
+      }
     }
   },
   data() {
@@ -71,8 +77,8 @@ export default {
     this.initform()
   },
   methods: {
-    initform() { 
-      let obj = {}
+    initform() {
+      let obj = this.defaultData
       this.data.forms.map(item => {
         if (item.type === 'Checkbox') {
           obj[item.key] = []
