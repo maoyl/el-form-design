@@ -4,7 +4,8 @@
       <span>表单设计</span>
       <el-button style="float: right; padding: 3px 0;margin-left:5px" type="text" @click="save">保存</el-button>
       <el-button style="float: right; padding: 3px 0;margin-left:5px" type="text" @click="yulan">预览</el-button>
-    </div>
+      <el-button style="float: right; padding: 3px 0;margin-left:5px" type="text" @click="()=>this.$emit('downloadvue')">下载源码</el-button>
+   </div>
     <div
       class="elcardzz"
       @dragover="dragover"

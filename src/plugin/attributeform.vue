@@ -9,7 +9,7 @@
           </el-form-item>
           <el-form-item v-if='form.showFrom.indexOf("key") !== -1 && fieldsdata.length > 0' label="字段名称">
             <el-select  style="width:100%" v-model="form.key" allow-create filterable>
-              <el-option  v-for='(item,index) in fieldsdata' :key="index" :label="item.label" :value="item.value">
+              <el-option  v-for='(item,index) in fieldsdata' :key="index" :label="item.value" :value="item.value">
                 <span style="float: left">{{ item.label }}</span>
                 <span style="float: right; color: #8492a6; font-size: 13px">{{ item.value }}</span>
               </el-option>

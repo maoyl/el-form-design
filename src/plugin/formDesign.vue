@@ -27,6 +27,7 @@
         @setdialogVisible='setdialogVisible'
         @save='save'
         @qingkong='qingkong'
+        @downloadvue='downloadvue'
       />
     </el-col>
     <el-col :span="6">
@@ -51,6 +52,7 @@
 </template>
 
 <script>
+import dow from './dow'
 import Assembly from './assembly'
 import Forms from './forms'
 import AttrFrom from './attributeform'
@@ -177,6 +179,22 @@ export default {
     save () {
       this.$emit('save', {formsetting:this.formsetting,forms:this.data})
     },
+    // 下载
+    download(filename, text) {
+      let element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('download', filename);
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    },
+    downloadvue () {
+      let filename = 'hello.vue'
+      let text = dow(this.formsetting,this.data)
+      console.log(text)
+      this.download(filename, text)
+    }
   }
 }
 </script>
