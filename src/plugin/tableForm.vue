@@ -162,12 +162,12 @@ export default {
     },
     drop () {
       // todo 进行添加操作 并且 hxindex 置为 -3
-      if (this.com.type != 'TableForm') {
+      if (['TableForm','p','Divider'].indexOf(this.com.type) == -1 ) {
         this.data.addcolumn(this.com)
       } else if (this.startindex === '-1') {
         // 中间的拖动到表格中 不处理
       } else {
-        // this.$message.error('不能在表格中添加表格')
+        this.$message.error('不能在表格中添加表格')
       }
       this.$emit('chonzhihxindex')
       console.log(this.data)
