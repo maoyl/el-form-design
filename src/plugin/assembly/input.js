@@ -26,6 +26,12 @@ export default class MInput extends assembly{
     this.rules = [
       { required: false, message: '请输入' + this.name , trigger: 'change' },
     ]
-
   }
+  deleterules (index) {
+    this.rules.splice(index+1, 1)
+  }
+  addrules (data) {
+    this.rules.push(data)
+  }
+
 }

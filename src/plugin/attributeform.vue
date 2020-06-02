@@ -297,6 +297,48 @@
           <el-form-item label="提示信息" v-if='form.rules[0].required'>
             <el-input v-model="form.rules[0].message"></el-input>
           </el-form-item>
+
+           <el-table
+            v-if='this.form.rules.length > 1'
+            border
+            :data="form.rules.filter((v,i) => i != 0 )"
+            class="tb-edit"
+            style="width: 100%"
+            highlight-current-row
+            size='mini'
+          >
+            <el-table-column label="正则表达式">
+              <template scope="scope">
+                <el-input
+                  disabled
+                  size="mini"
+                  v-model="scope.row.pattern"
+                  placeholder="请输入内容"
+                ></el-input>
+              </template>
+            </el-table-column>
+            <el-table-column label="错误提示">
+              <template scope="scope">
+                <el-input
+                  size="mini"
+                  disabled
+                  v-model="scope.row.message"
+                  placeholder="请输入内容"
+                ></el-input>
+              </template>
+            </el-table-column>
+            <el-table-column label="操作">
+              <template scope="scope">
+                <el-button
+                  size="mini"
+                  type="danger"
+                  @click="form.deleterules(scope.$index)"
+                >删除</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+          <el-button style="margin-top:5px" v-if='form.rules[0].required' @click="dialogVisible=true" size="small">添加正则校验</el-button>
+
         </el-form>
       </el-tab-pane>
       <el-tab-pane label="表单设置" name="3">
@@ -325,6 +367,26 @@
       <svg t="1584024586503" v-if='!lj' viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2016" width="200" height="200"><path d="M652.8 834.56c15.36 0 25.6-10.24 25.6-25.6v-307.2c0-15.36-10.24-25.6-25.6-25.6s-25.6 10.24-25.6 25.6v307.2c0 12.8 10.24 25.6 25.6 25.6z m-128 0c15.36 0 25.6-10.24 25.6-25.6v-307.2c0-15.36-10.24-25.6-25.6-25.6s-25.6 10.24-25.6 25.6v307.2c0 12.8 10.24 25.6 25.6 25.6z m281.6-614.4h-153.6v-51.2c0-28.16-23.04-51.2-51.2-51.2h-153.6c-28.16 0-51.2 23.04-51.2 51.2v51.2h-153.6c-28.16 0-51.2 23.04-51.2 51.2v51.2c0 28.16 23.04 51.2 51.2 51.2v460.8c0 56.32 46.08 102.4 102.4 102.4h358.4c56.32 0 102.4-46.08 102.4-102.4v-460.8c28.16 0 51.2-23.04 51.2-51.2v-51.2c0-28.16-23.04-51.2-51.2-51.2z m-358.4-25.6c0-15.36 10.24-25.6 25.6-25.6h102.4c15.36 0 25.6 10.24 25.6 25.6v25.6h-153.6v-25.6z m307.2 640c0 28.16-23.04 51.2-51.2 51.2h-358.4c-28.16 0-51.2-23.04-51.2-51.2v-460.8h460.8v460.8z m25.6-512h-512c-15.36 0-25.6-10.24-25.6-25.6s10.24-25.6 25.6-25.6h512c15.36 0 25.6 10.24 25.6 25.6 0 12.8-10.24 25.6-25.6 25.6z m-384 512c15.36 0 25.6-10.24 25.6-25.6v-307.2c0-15.36-10.24-25.6-25.6-25.6s-25.6 10.24-25.6 25.6v307.2c0 12.8 10.24 25.6 25.6 25.6z" p-id="2017" fill="#1296db"></path></svg>
       <svg t="1584029734035" v-if='lj' viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6049" width="200" height="200"><path d="M652.8 834.56c15.36 0 25.6-10.24 25.6-25.6v-307.2c0-15.36-10.24-25.6-25.6-25.6s-25.6 10.24-25.6 25.6v307.2c0 12.8 10.24 25.6 25.6 25.6z m-128 0c15.36 0 25.6-10.24 25.6-25.6v-307.2c0-15.36-10.24-25.6-25.6-25.6s-25.6 10.24-25.6 25.6v307.2c0 12.8 10.24 25.6 25.6 25.6z m281.6-614.4h-153.6v-51.2c0-28.16-23.04-51.2-51.2-51.2h-153.6c-28.16 0-51.2 23.04-51.2 51.2v51.2h-153.6c-28.16 0-51.2 23.04-51.2 51.2v51.2c0 28.16 23.04 51.2 51.2 51.2v460.8c0 56.32 46.08 102.4 102.4 102.4h358.4c56.32 0 102.4-46.08 102.4-102.4v-460.8c28.16 0 51.2-23.04 51.2-51.2v-51.2c0-28.16-23.04-51.2-51.2-51.2z m-358.4-25.6c0-15.36 10.24-25.6 25.6-25.6h102.4c15.36 0 25.6 10.24 25.6 25.6v25.6h-153.6v-25.6z m307.2 640c0 28.16-23.04 51.2-51.2 51.2h-358.4c-28.16 0-51.2-23.04-51.2-51.2v-460.8h460.8v460.8z m25.6-512h-512c-15.36 0-25.6-10.24-25.6-25.6s10.24-25.6 25.6-25.6h512c15.36 0 25.6 10.24 25.6 25.6 0 12.8-10.24 25.6-25.6 25.6z m-384 512c15.36 0 25.6-10.24 25.6-25.6v-307.2c0-15.36-10.24-25.6-25.6-25.6s-25.6 10.24-25.6 25.6v307.2c0 12.8 10.24 25.6 25.6 25.6z" p-id="6050" fill="#d4237a"></path></svg>
     </div>
+
+    <el-dialog
+      title="正则校验"
+      :visible.sync="dialogVisible"
+      width="30%"
+      :before-close="handleClose">
+
+      <el-form :model="regular" label-width="120px" size='small'>
+        <el-form-item label="正则表达式" >
+          <el-input v-model="regular.pattern"></el-input>
+        </el-form-item>
+        <el-form-item label="提示信息" >
+          <el-input v-model="regular.message"></el-input>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false" size="small">取 消</el-button>
+        <el-button type="primary" @click="saveregular" size="small" >确 定</el-button>
+      </span>
+    </el-dialog>
   </el-card>
 </template>
 
@@ -370,7 +432,13 @@ export default {
       activeName: '1',
       formclass: '',
       // 垃圾桶
-      lj: false
+      lj: false,
+      // 正则
+      regular: {
+        pattern: '/^[1][3,4,5,7,8][0-9]{9}$/',
+        message: '请输入正确的手机号'
+      },
+      dialogVisible: false
     }
   },
   created () {
@@ -403,10 +471,38 @@ export default {
     },
     // 删除选项
     handleDelete (index) {
+     
       this.form.deleteOption(index)
     },
     addoption () {
       this.form.addoption()
+    },
+    saveregular () {
+      let { pattern , message } = this.regular
+      if (!pattern || !message) {
+        this.$message.error('请填写完正则表达式及未通过表达式时的提示信息!');
+        return
+      }
+      let isreg;
+      try{
+        isreg = eval(pattern) instanceof RegExp
+      }catch(e){
+        isreg = false
+      }
+      if (isreg === true){
+        let aa = pattern.substring(1,pattern.length-1)
+        let data = {
+          "pattern": new RegExp(aa),
+          "message": message
+        }
+        this.form.addrules(data)
+        this.dialogVisible = false
+      } else {
+        this.$message.error('您的正则表达式不正确!');
+      }
+    },
+    handleClose () {
+      this.dialogVisible = false
     }
   },
   watch: {
